@@ -41,7 +41,7 @@ namespace Progmet_adressbok
 
             Console.WriteLine("Välkommen till adressboken\n");
             Console.WriteLine("Hjälpkommandon: ");
-            Console.WriteLine("Skriv \"show\" för att se kontakter\nSkriv \"add\" för att lägga till ny kontakt\nSkriv \"delete\" för att ta bort kontakt\nSkriv \"exit\" för att avsluta programmet");
+            Console.WriteLine("Skriv \"show\" för att se kontakter\nSkriv \"add\" för att lägga till ny kontakt\nSkriv \"delete\" för att ta bort kontakt\nSkriv \"edit\" för att redigera kontaktinformation\nSkriv \"exit\" för att avsluta programmet");
             do
             {
                 Console.Write("> ");
@@ -100,7 +100,7 @@ namespace Progmet_adressbok
                         Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
                     }
                     Console.WriteLine();
-                    Console.Write("Ange nummer för den kontakt du vill ta bort: ");
+                    Console.Write("Ange nummer för kontakt som ska raderas från listan: ");
                     int inputNum;
                     int.TryParse(Console.ReadLine(), out inputNum);
                     for (int i = 0; i < adressBook.Count(); i++)
@@ -124,7 +124,7 @@ namespace Progmet_adressbok
                         Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
                     }
                     Console.WriteLine();
-                    Console.Write("Ange nummer för den kontakt du vill redigera: ");
+                    Console.Write("Ange nummer för kontakt som ska redigeras: ");
                     int inputNum;
                     int.TryParse(Console.ReadLine(), out inputNum);
                     for (int i = 0; i < adressBook.Count(); i++)
@@ -157,7 +157,7 @@ namespace Progmet_adressbok
                                     string oldNumber = adressBook[i].telephone;
                                     Console.Write("Ange nytt telefonnummer för denna kontakt: ");
                                     adressBook[i].telephone = Console.ReadLine();
-                                    Console.WriteLine($"Kontakten bytte adress från {oldNumber} till {adressBook[i].telephone}");
+                                    Console.WriteLine($"Kontakten bytte telefonnummer från {oldNumber} till {adressBook[i].telephone}");
                                     break;
                                 case 4:
                                     string oldEmail = adressBook[i].email;

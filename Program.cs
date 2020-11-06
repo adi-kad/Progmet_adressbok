@@ -114,7 +114,7 @@ namespace Progmet_adressbok
                         }
                     }
                 }
-                else if (command == "edit") //under construction
+                else if (command == "edit") 
                 {
                     Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
 
@@ -135,7 +135,7 @@ namespace Progmet_adressbok
                             Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
                             Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
                             Console.WriteLine("Ange nummer för det du vill ändra\n" +
-                                "1. Namn\t2. Address\t3. Telefonnummer\t4. E-mail");
+                                "1. Namn\t2. Adress\t3. Telefonnummer\t4. E-mail");
                             int choice;
                             int.TryParse(Console.ReadLine(), out choice);
 
@@ -163,7 +163,7 @@ namespace Progmet_adressbok
                                     string oldEmail = adressBook[i].email;
                                     Console.Write("Ange ny e-mail för denna kontakt: ");
                                     adressBook[i].email = Console.ReadLine();
-                                    Console.WriteLine($"Kontakten bytte adress från {oldEmail} till {adressBook[i].email}");
+                                    Console.WriteLine($"Kontakten bytte e-mail från {oldEmail} till {adressBook[i].email}");
                                     break;
                                 default:
                                     break;

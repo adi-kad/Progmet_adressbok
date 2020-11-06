@@ -27,7 +27,7 @@ namespace Progmet_adressbok
 
         static void Main(string[] args)
         {
-            string filepath = @"C:\Users\Admin\adressbok.txt";           
+            string filepath = @"C:\Users\Admin\adressbok.txt";
             List<string> lines = File.ReadAllLines(filepath).ToList();
             List<Person> adressBook = new List<Person>();
             string command = "";
@@ -46,17 +46,18 @@ namespace Progmet_adressbok
                 Console.Write("> ");
                 command = Console.ReadLine();
                 Console.WriteLine($"command: {command}");
-                
+
                 if (command == "show")
                 {
                     string nameDisplay = "Name", adressDisplay = "Adress", phone = "Phone", email = "E-mail";
                     Console.WriteLine("Showing Contacts\n");
-                    Console.WriteLine($"{nameDisplay, -20}{adressDisplay, -20}{phone, -20}{email, -20}");
-                    
+                    Console.WriteLine($"{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
+
                     foreach (Person person in adressBook)
-                    {                        
-                        Console.WriteLine($"{person.name, -20}{person.adress, -20}{person.telephone, -20}{person.email, -20}");
+                    {
+                        Console.WriteLine($"{person.name,-20}{person.adress,-20}{person.telephone,-20}{person.email,-20}");                      
                     }
+                    Console.WriteLine();
                 }
                 else if (command == "add")
                 {
@@ -68,13 +69,13 @@ namespace Progmet_adressbok
                     Console.Write("Ange adress: ");
                     newPerson.adress = Console.ReadLine();
                     Console.Write("Ange telefonnummer: ");
-                    newPerson.telephone = Console.ReadLine(); 
+                    newPerson.telephone = Console.ReadLine();
                     Console.Write("Ange e-mail: ");
                     newPerson.email = Console.ReadLine();
 
                     adressBook.Add(newPerson);
                     Console.WriteLine("Ny kontakt tillagd!");
-                    
+
                 }
                 else if (command == "save")
                 {
@@ -88,15 +89,32 @@ namespace Progmet_adressbok
                 }
                 else if (command == "delete")
                 {
+                    for (int i = 0; i < adressBook.Count(); i++)
+                    {
+                        int listPos = i + 1;
+                        Console.WriteLine($"{listPos}. {adressBook[i].name}");
+                    }
 
+                    Console.Write("Ange nummer för den kontakt du vill ta bort: ");
+                    int inputNum;
+                    int.TryParse(Console.ReadLine(), out inputNum);
+                    for (int i = 0; i < adressBook.Count(); i++)
+                    {
+                        int listPos = i + 1;
+                        if (listPos == inputNum)
+                        {
+                            Console.WriteLine($"{adressBook[i].name} togs bort från listan!");
+                            adressBook.RemoveAt(i);                          
+                        }
+                    }
                 }
                 else if (command == "exit")
                 {
                     Console.WriteLine("Adjö!");
                 }
 
-            } while (command != "sluta");
-           
+            } while (command != "exit");
+
             Console.ReadKey();
         }
     }

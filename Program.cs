@@ -41,7 +41,12 @@ namespace Progmet_adressbok
 
             Console.WriteLine("Välkommen till adressboken\n");
             Console.WriteLine("Hjälpkommandon: ");
-            Console.WriteLine("Skriv \"show\" för att se kontakter\nSkriv \"add\" för att lägga till ny kontakt\nSkriv \"delete\" för att ta bort kontakt\nSkriv \"edit\" för att redigera kontaktinformation\nSkriv \"save\" för att spara ändringar\nSkriv \"exit\" för att avsluta programmet");
+            Console.WriteLine("Skriv \"show\" för att se kontakter" +
+                "\nSkriv \"add\" för att lägga till ny kontakt" +
+                "\nSkriv \"delete\" för att ta bort kontakt" +
+                "\nSkriv \"edit\" för att redigera kontaktinformation" +
+                "\nSkriv \"save\" för att spara ändringar" +
+                "\nSkriv \"exit\" för att avsluta programmet");
             do
             {
                 Console.Write("> ");

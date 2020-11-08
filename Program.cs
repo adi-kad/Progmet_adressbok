@@ -11,24 +11,24 @@ namespace Progmet_adressbok
     {
         class Person
         {
-            public string name = "", adress = "", telephone = "", email = "";
+            public string name = "", adress = "", phone = "", email = "";
             public Person()
             {
 
             }
-            public Person(string name, string adress, string telephone, string email)
+            public Person(string name, string adress, string phone, string email)
             {
                 this.name = name;
                 this.adress = adress;
-                this.telephone = telephone;
+                this.phone = phone;
                 this.email = email;
             }
         }
 
         static void Main(string[] args)
         {
-            string filepath = @"C:\Users\Admin\adressbok.txt";
-            List<string> lines = File.ReadAllLines(filepath).ToList();
+            string filePath = @"C:\Users\Admin\adressbok.txt";
+            List<string> lines = File.ReadAllLines(filePath).ToList();
             List<Person> adressBook = new List<Person>();
             string command = "";
 
@@ -53,16 +53,16 @@ namespace Progmet_adressbok
                 command = Console.ReadLine();
                 Console.WriteLine($"command: {command}");
 
-                string nameDisplay = "Name", adressDisplay = "Adress", phone = "Phone", email = "E-mail", listPosition = "Nr";
+                string nameDisplay = "Name", adressDisplay = "Adress", phoneDisplay = "Phone", emailDisplay = "E-mail", listPosition = "Nr";
                 if (command == "show")
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
+                    Console.WriteLine($"{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phoneDisplay,-20}{emailDisplay,-20}");
 
                     int listPos = 1;
                     foreach (Person person in adressBook)
                     {
-                        Console.WriteLine($"{listPos,-10}{person.name,-20}{person.adress,-20}{person.telephone,-20}{person.email,-20}");
+                        Console.WriteLine($"{listPos,-10}{person.name,-20}{person.adress,-20}{person.phone,-20}{person.email,-20}");
                         listPos++;
                     }
                     Console.WriteLine();
@@ -77,7 +77,7 @@ namespace Progmet_adressbok
                     Console.Write("Ange adress: ");
                     newPerson.adress = Console.ReadLine();
                     Console.Write("Ange telefonnummer: ");
-                    newPerson.telephone = Console.ReadLine();
+                    newPerson.phone = Console.ReadLine();
                     Console.Write("Ange e-mail: ");
                     newPerson.email = Console.ReadLine();
 
@@ -88,20 +88,20 @@ namespace Progmet_adressbok
                 else if (command == "save")
                 {
                     Console.WriteLine("Listan sparad och uppdaterad!");
-                    StreamWriter writer = new StreamWriter(filepath);
+                    StreamWriter writer = new StreamWriter(filePath);
                     foreach (Person person in adressBook)
                     {
-                        writer.WriteLine($"{person.name},{person.adress},{person.telephone},{person.email}");
+                        writer.WriteLine($"{person.name},{person.adress},{person.phone},{person.email}");
                     }
                     writer.Close();
                 }
                 else if (command == "delete")
                 {
-                    Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
+                    Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phoneDisplay,-20}{emailDisplay,-20}");
                     for (int i = 0; i < adressBook.Count(); i++)
                     {
                         int listPos = i + 1;
-                        Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
+                        Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].phone,-20}{adressBook[i].email}");
                     }
                     Console.WriteLine();
                     Console.Write("Ange nummer för kontakt som ska raderas från listan: ");
@@ -120,12 +120,12 @@ namespace Progmet_adressbok
                 }
                 else if (command == "edit")
                 {
-                    Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
+                    Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phoneDisplay,-20}{emailDisplay,-20}");
 
                     for (int i = 0; i < adressBook.Count(); i++)
                     {
                         int listPos = i + 1;
-                        Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
+                        Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].phone,-20}{adressBook[i].email}");
                     }
                     Console.WriteLine();
                     Console.Write("Ange nummer för kontakt som ska redigeras: ");
@@ -136,8 +136,8 @@ namespace Progmet_adressbok
                         int listPos = i + 1;
                         if (listPos == inputNum)
                         {
-                            Console.WriteLine($"{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
-                            Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
+                            Console.WriteLine($"{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phoneDisplay,-20}{emailDisplay,-20}");
+                            Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].phone,-20}{adressBook[i].email}");
                             Console.WriteLine("\nAnge nummer för det du vill ändra\n" +
                                 "1. Namn   2. Adress   3. Telefonnummer   4. E-mail");
                             int choice;
@@ -158,10 +158,10 @@ namespace Progmet_adressbok
                                     Console.WriteLine($"Kontakten bytte adress från {oldAdress} till {adressBook[i].adress}");
                                     break;
                                 case 3:
-                                    string oldNumber = adressBook[i].telephone;
+                                    string oldNumber = adressBook[i].phone;
                                     Console.Write("Ange nytt telefonnummer för denna kontakt: ");
-                                    adressBook[i].telephone = Console.ReadLine();
-                                    Console.WriteLine($"Kontakten bytte telefonnummer från {oldNumber} till {adressBook[i].telephone}");
+                                    adressBook[i].phone = Console.ReadLine();
+                                    Console.WriteLine($"Kontakten bytte telefonnummer från {oldNumber} till {adressBook[i].phone}");
                                     break;
                                 case 4:
                                     string oldEmail = adressBook[i].email;

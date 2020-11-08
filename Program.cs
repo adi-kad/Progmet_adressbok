@@ -27,7 +27,7 @@ namespace Progmet_adressbok
 
         static void Main(string[] args)
         {
-            string filepath = @"C:\Users\adika\random.txt";
+            string filepath = @"C:\Users\Admin\adressbok.txt";
             List<string> lines = File.ReadAllLines(filepath).ToList();
             List<Person> adressBook = new List<Person>();
             string command = "";
@@ -132,10 +132,10 @@ namespace Progmet_adressbok
                         int listPos = i + 1;
                         if (listPos == inputNum)
                         {
-                            Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
+                            Console.WriteLine($"{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
                             Console.WriteLine($"{listPos,-10}{adressBook[i].name,-20}{adressBook[i].adress,-20}{adressBook[i].telephone,-20}{adressBook[i].email}");
-                            Console.WriteLine("Ange nummer för det du vill ändra\n" +
-                                "1. Namn\t2. Adress\t3. Telefonnummer\t4. E-mail");
+                            Console.WriteLine("\nAnge nummer för det du vill ändra\n" +
+                                "1. Namn   2. Adress   3. Telefonnummer   4. E-mail");
                             int choice;
                             int.TryParse(Console.ReadLine(), out choice);
 

@@ -84,7 +84,6 @@ namespace Progmet_adressbok
                     adressBook.Add(newPerson);
                     Console.WriteLine("Ny kontakt tillagd!");
                     Console.WriteLine("Skriv \"save\" för att spara listan");
-
                 }
                 else if (command == "save")
                 {
@@ -119,7 +118,7 @@ namespace Progmet_adressbok
                         }
                     }
                 }
-                else if (command == "edit") 
+                else if (command == "edit")
                 {
                     Console.WriteLine($"\n{listPosition,-10}{nameDisplay,-20}{adressDisplay,-20}{phone,-20}{email,-20}");
 
@@ -175,13 +174,11 @@ namespace Progmet_adressbok
                             }
                         }
                     }
-
                 }
                 else if (command == "exit")
                 {
                     Console.WriteLine("Adjö!");
                 }
-
 
             } while (command != "exit");
 
